@@ -1,21 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pokedex</title>
+    <title>Pokédex</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header></header>
+
     <main>
+        <!-- Partie Amina -->
+        <section class="outils_amina">
+            <label for="recherche_pokemon">
+                Rechercher un Pokémon
+            </label>
+
+            <input
+                type="search"
+                id="recherche_pokemon"
+                placeholder="Exemple : Pikachu"
+                autocomplete="off"
+            >
+
+            <p class="compteur_favoris">
+                Favoris : <span id="nombre_favoris">0</span>
+            </p>
+        </section>
+
+        <p id="aucun_resultat" class="aucun_resultat cache">
+            Aucun Pokémon ne correspond à votre recherche.
+        </p>
+
         <div class="pokedex" id="pokedex">
-            <select></select>
-            
+
         </div>
     </main>
+
     <footer>
         <script src="pokedex.js"></script>
     </footer>
 </body>
+
 </html>
