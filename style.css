@@ -1,62 +1,28 @@
-
 .pokedex {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(200px, 1fr)
+    );
     gap: 20px;
     padding: 20px;
     background-color: white;
     border: 2px solid #333;
     border-radius: 12px;
-    box-shadow: 5px 5px 0px #333;
+    box-shadow: 5px 5px 0 #333;
 }
 
-
 .carte {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
     background-color: white;
     border: 2px solid #333;
     border-radius: 12px;
-    padding: 15px;
     box-shadow: 5px 5px 2px #333;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-
-
-.case_nom {
-    width: 100%;
-    border: 2px solid #333;
-    border-radius: 6px;
-    padding: 5px;
-    background-color: #fff;
-    text-align: center;
-}
-
-.case_nom h2 {
-    font-size: 1rem;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-
-.image_carte {
-    width: 100%;
-    height: 150px;
-    border: 2px solid #333;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f9f9;
-}
-
-.image_carte img {
-    max-height: 120px;
-    max-width: 120px;
-    object-fit: contain;
 }
 
 .carte_header {
@@ -67,42 +33,58 @@
     gap: 8px;
 }
 
-
 .case_nom {
     flex-grow: 1;
+    width: 100%;
+    padding: 5px;
+    background-color: white;
     border: 2px solid #333;
     border-radius: 6px;
-    padding: 5px;
-    background-color: #fff;
     text-align: center;
 }
 
 .case_nom h2 {
-    font-size: 0.9rem;
     margin: 0;
-    text-transform: capitalize;
-    white-space: nowrap;
     overflow: hidden;
+    font-size: 0.9rem;
+    text-transform: capitalize;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-/* Style de la boîte d'affichage du type */
+.image_carte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background-color: #f9f9f9;
+    border: 2px solid #333;
+    border-radius: 8px;
+}
+
+.image_carte img {
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: contain;
+}
+
 .affichage_type {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-/* Style des petits badges de type */
 .badge_type {
+    padding: 4px 8px;
     border: 2px solid #333;
     border-radius: 6px;
-    padding: 4px 8px;
     font-size: 0.75rem;
     font-weight: bold;
-    text-transform: capitalize;
     text-align: center;
+    text-transform: capitalize;
 }
+
 /* Partie Amina */
 
 .outils_amina {
@@ -129,14 +111,28 @@
 .compteur_favoris {
     margin: 0;
     padding: 12px 16px;
+    background-color: white;
     border: 2px solid #333;
     border-radius: 8px;
-    background-color: white;
     font-weight: bold;
 }
 
-.carte {
-    position: relative;
+#afficher_favoris {
+    padding: 12px 16px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#afficher_favoris:hover {
+    background-color: #f2f2f2;
+}
+
+#afficher_favoris.actif {
+    color: white;
+    background-color: #e32636;
 }
 
 .bouton_favori {
@@ -145,10 +141,10 @@
     bottom: 8px;
     width: 38px;
     height: 38px;
-    border: 2px solid #333;
-    border-radius: 50%;
     color: #333;
     background-color: white;
+    border: 2px solid #333;
+    border-radius: 50%;
     font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
@@ -165,9 +161,9 @@
 
 .aucun_resultat {
     padding: 20px;
-    text-align: center;
     color: #c1121f;
     font-weight: bold;
+    text-align: center;
 }
 
 .cache {
