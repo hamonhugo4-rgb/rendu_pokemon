@@ -18,13 +18,13 @@ const getData = async () => {
     if(response.status < 300){
         const data = await response.json();
         
-        // On utilise une boucle for...of pour pouvoir faire des fetch sur chaque pokemon
+        
         for (const element of data.results) {
-            // On récupère les détails du pokémon pour avoir ses types
+            
             const resDetails = await fetch(element.url);
             const details = await resDetails.json();
             
-            // On extrait les noms des types (ex: ['grass', 'poison'])
+            
             const types = details.types.map(t => t.type.name);
 
             pokedex_list.push([
@@ -48,12 +48,14 @@ async function creerpokedex(){
     
     for (let i = 0; i < pokedex_list.length; i++) {
         
-        let typesHtml = pokedex_list[i][4].map(t => `<span class="badge_type">${t}</span>`).join('');
+        let typesHtml = pokedex_list[i][4].map(t => {
+    return `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/main/icons/${t}.svg" alt="${t}" class="icon_type" title="${t}">`;
+            }).join('');
 
         pokedex += `<div class="carte" name="${pokedex_list[i][0]}">
                         <div class="carte_header">
                             <div class="case_nom">
-                                <h2>${pokedex_list[i][1]}</h2>
+                                <h2>${pokedex_list[i][1]}</h2>git 
                             </div>
                             <div class="affichage_type">
                                 ${typesHtml}

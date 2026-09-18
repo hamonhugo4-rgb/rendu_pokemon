@@ -86,20 +86,27 @@
     text-overflow: ellipsis;
 }
 
-/* Style de la boîte d'affichage du type */
+
 .affichage_type {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-/* Style des petits badges de type */
+
 .badge_type {
     border: 2px solid #333;
     border-radius: 6px;
     padding: 4px 8px;
     font-size: 0.75rem;
     font-weight: bold;
+    
     text-transform: capitalize;
     text-align: center;
+}
+
+.icon_type {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }
