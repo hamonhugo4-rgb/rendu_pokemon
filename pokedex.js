@@ -35,9 +35,29 @@ const getData = async () => {
     // Status code >= 300
     displayError("Une erreur est survenue")
   }
-    console.log(pokedex_list); // Pour vérifier le résultat dans la console
+    return pokedex_list; // retourne la liste pour obtenir les information
 
   } 
 
 
-getData()
+async function creerpokedex(){
+    const pokedex_list = await getData();
+    let pokedex ="";
+    for (let i =0;i<50;i++){
+        pokedex += `<div class="carte" name="${pokedex_list[i][0]}">
+                        <div class="case_nom">
+                            <h2>${pokedex_list[i][1]}</h2>
+                        </div>
+                        <div class="image_carte">
+                            <img src="${pokedex_list[i][3]}" alt="image de ${pokedex_list[i][1]}">
+                        </div> 
+                    </div>`
+    }
+    const pokedex_div = document.getElementById("pokedex");
+    
+    // On injecte le HTML généré à l'intérieur de la div
+    pokedex_div.innerHTML = pokedex;
+}
+
+
+creerpokedex();
