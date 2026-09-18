@@ -94,3 +94,32 @@ function initFilter() {
         });
     });
 }
+
+async function poke_identity(name) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        .catch(error => {
+            console.error("Error:", error);
+            displayError("Une erreur est survenue");
+        });
+
+    if(response.status < 300) {
+        const details = await response.json();
+        const stats = details.stats.map(s => `${s.stat.name}: ${s.base_stat}`);
+        const types = details.types.map(t => t.type.name);
+        const info_carte = {
+            nom: details.name,
+            taille: `${details.height *10} cm`,
+            poids: `${details.weight} kg`,
+            stats: stats,
+            type:types
+        };
+        console.log(info_carte);
+        return info_carte;
+    }
+        
+    else{
+    
+        displayError("Une erreur est survenue");
+        return;
+    
+    }};
