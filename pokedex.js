@@ -4,7 +4,7 @@ const displayError = (message) => {
   error.textContent = message
   document.body.appendChild(error)
 }
- 
+
 const getData = async () => {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
     .catch(error => {
@@ -18,13 +18,9 @@ const getData = async () => {
     if(response.status < 300){
         const data = await response.json();
         
-        
         for (const element of data.results) {
-            
             const resDetails = await fetch(element.url);
             const details = await resDetails.json();
-            
-            
             const types = details.types.map(t => t.type.name);
 
             pokedex_list.push([
@@ -47,10 +43,9 @@ async function creerpokedex(){
     let pokedex ="";
     
     for (let i = 0; i < pokedex_list.length; i++) {
-        
         let typesHtml = pokedex_list[i][4].map(t => {
-    return `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/main/icons/${t}.svg" alt="${t}" class="icon_type" title="${t}">`;
-            }).join('');
+            return `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/main/icons/${t}.svg" alt="${t}" class="icon_type" title="${t}">`;
+        }).join('');
 
         pokedex += `<div class="carte" data-types="${pokedex_list[i][4].join(' ')}" name="${pokedex_list[i][0]}">
                         <div class="carte_header">
@@ -70,11 +65,10 @@ async function creerpokedex(){
     pokedex_div.innerHTML = pokedex;
 
     initFilter();
+    initCardHover();
 }
 
 creerpokedex();
-
-
 
 function initFilter() {
     const selectFilter = document.querySelector('select');
@@ -104,22 +98,63 @@ async function poke_identity(name) {
 
     if(response.status < 300) {
         const details = await response.json();
-        const stats = details.stats.map(s => `${s.stat.name}: ${s.base_stat}`);
-        const types = details.types.map(t => t.type.name);
-        const info_carte = {
-            nom: details.name,
-            taille: `${details.height *10} cm`,
-            poids: `${details.weight} kg`,
-            stats: stats,
-            type:types
-        };
-        console.log(info_carte);
-        return info_carte;
-    }
+        const stats = details.stats.map(s => `<li>${s.stat.name}: ${s.base_stat}</li>`).join('');
+        const types = details.types.map(t => t.type.name).join(', ');
         
-    else{
-    
+        const modalDetails = document.getElementById("modal-details");
+        modalDetails.innerHTML = `
+            <h2>${details.name}</h2>
+            <img src="${details.sprites.front_default}" alt="${details.name}" style="width: 130px; image-rendering: pixelated;">
+            <p><strong>Type(s) :</strong> ${types}</p>
+            <p><strong>Taille :</strong> ${details.height * 10} cm</p>
+            <p><strong>Poids :</strong> ${details.weight / 10} kg</p>
+            <p><strong>Statistiques :</strong></p>
+            <ul>${stats}</ul>
+        `;
+
+        document.getElementById("pokemon-modal").style.display = "flex";
+    } else {
         displayError("Une erreur est survenue");
-        return;
-    
-    }};
+    }
+}
+
+document.addEventListener('click', (event) => {
+    const modal = document.getElementById("pokemon-modal");
+    if (event.target.classList.contains('close-btn') || event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+function initCardHover() {
+    const cards = document.querySelectorAll('.carte');
+
+    cards.forEach(card => {
+        let hoverTimer = null;
+        let closeTimer = null;
+        const pokemonName = card.querySelector('h2').textContent;
+        const modal = document.getElementById("pokemon-modal");
+
+        card.addEventListener('mouseenter', () => {
+            clearTimeout(closeTimer);
+
+            if (modal.style.display !== "flex") {
+                clearTimeout(hoverTimer);
+                hoverTimer = setTimeout(() => {
+                    poke_identity(pokemonName);
+                }, 2000);
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            clearTimeout(hoverTimer);
+
+            
+            if (modal.style.display === "flex") {
+                clearTimeout(closeTimer);
+                closeTimer = setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 1000);
+            }
+        });
+    });
+}
