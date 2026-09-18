@@ -52,10 +52,10 @@ async function creerpokedex(){
     return `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/main/icons/${t}.svg" alt="${t}" class="icon_type" title="${t}">`;
             }).join('');
 
-        pokedex += `<div class="carte" name="${pokedex_list[i][0]}">
+        pokedex += `<div class="carte" data-types="${pokedex_list[i][4].join(' ')}" name="${pokedex_list[i][0]}">
                         <div class="carte_header">
                             <div class="case_nom">
-                                <h2>${pokedex_list[i][1]}</h2>git 
+                                <h2>${pokedex_list[i][1]}</h2>
                             </div>
                             <div class="affichage_type">
                                 ${typesHtml}
@@ -68,6 +68,29 @@ async function creerpokedex(){
     }
     const pokedex_div = document.getElementById("pokedex");
     pokedex_div.innerHTML = pokedex;
+
+    initFilter();
 }
 
 creerpokedex();
+
+
+
+function initFilter() {
+    const selectFilter = document.querySelector('select');
+    const cards = document.querySelectorAll('.carte');
+
+    selectFilter.addEventListener('change', (e) => {
+        const selectedValue = e.target.value; 
+
+        cards.forEach(card => {
+            const cardTypes = card.getAttribute('data-types'); 
+
+            if (selectedValue === 'all' || cardTypes.includes(selectedValue)) {
+                card.style.display = 'flex'; 
+            } else {
+                card.style.display = 'none'; 
+            }
+        });
+    });
+}
