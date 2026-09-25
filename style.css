@@ -367,3 +367,25 @@ header::before {
         font-size: 1.3rem;
     }
 }
+/* Couleur des cartes selon le type */
+
+.carte[data-types^="normal"]   { --couleur-type: #e8e4d8; }
+.carte[data-types^="fire"]     { --couleur-type: #ffd2b8; }
+.carte[data-types^="water"]    { --couleur-type: #cfe0ff; }
+.carte[data-types^="grass"]    { --couleur-type: #cdeec0; }
+.carte[data-types^="electric"] { --couleur-type: #fff3a8; }
+.carte[data-types^="ice"]      { --couleur-type: #d4f4f4; }
+.carte[data-types^="fighting"] { --couleur-type: #f2c4bd; }
+.carte[data-types^="poison"]   { --couleur-type: #e6cbef; }
+.carte[data-types^="ground"]   { --couleur-type: #f0e0b8; }
+.carte[data-types^="psychic"]  { --couleur-type: #ffd0e0; }
+.carte[data-types^="bug"]      { --couleur-type: #e2f0b0; }
+.carte[data-types^="rock"]     { --couleur-type: #e6ddb8; }
+.carte[data-types^="ghost"]    { --couleur-type: #d8d0ec; }
+.carte[data-types^="dragon"]   { --couleur-type: #d0c8ff; }
+.carte[data-types^="fairy"]    { --couleur-type: #ffd8f0; }
+
+.case_nom,
+.image_carte {
+    background-color: var(--couleur-type, var(--bleu-pale));
+}
