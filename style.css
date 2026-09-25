@@ -301,14 +301,16 @@ header::before {
 
 .outils_amina label,
 .compteur_favoris,
-#afficher_favoris {
+#afficher_favoris,
+#filtre_type {
     font-family: var(--police-pixel);
     font-size: 0.65rem;
 }
 
 #recherche_pokemon,
 .compteur_favoris,
-#afficher_favoris {
+#afficher_favoris,
+#filtre_type {
     border: 3px solid var(--bleu-nuit);
     border-radius: 0;
 }
@@ -388,4 +390,15 @@ header::before {
 .case_nom,
 .image_carte {
     background-color: var(--couleur-type, var(--bleu-pale));
+}
+#filtre_type {
+    padding: 12px 16px;
+    background-color: white;
+    color: var(--bleu-nuit);
+    cursor: pointer;
+    width: min(100%, 220px);
+}
+
+#filtre_type:hover {
+    background-color: #f2f2f2;
 }

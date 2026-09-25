@@ -22,7 +22,26 @@
                 placeholder="Exemple : Pikachu"
                 autocomplete="off"
             >
-
+            <select id="filtre_type">
+                <option value="all">tout type</option>
+                <option value="fire">fire</option>
+                <option value="water">water</option>
+                <option value="grass">grass</option>
+                <option value="poison">poison</option>
+                <option value="flying">flying</option>
+                <option value="bug">bug</option>
+                <option value="normal">normal</option>
+                <option value="electric">electric</option>
+                <option value="ground">ground</option>
+                <option value="fairy">fairy</option>
+                <option value="fighting">fighting</option>
+                <option value="psychic">psychic</option>
+                <option value="rock">rock</option>
+                <option value="steel">steel</option>
+                <option value="ice">ice</option>
+                <option value="ghost">ghost</option>
+                <option value="dragon">dragon</option>
+            </select>
             <p class="compteur_favoris">
                 Favoris : <span id="nombre_favoris">0</span>
             </p>
@@ -36,26 +55,7 @@
             Aucun Pokémon ne correspond à votre recherche.
         </p>
 
-        <select>
-            <option value="all">tout type</option>
-            <option value="fire">fire</option>
-            <option value="water">water</option>
-            <option value="grass">grass</option>
-            <option value="poison">poison</option>
-            <option value="flying">flying</option>
-            <option value="bug">bug</option>
-            <option value="normal">normal</option>
-            <option value="electric">electric</option>
-            <option value="ground">ground</option>
-            <option value="fairy">fairy</option>
-            <option value="fighting">fighting</option>
-            <option value="psychic">psychic</option>
-            <option value="rock">rock</option>
-            <option value="steel">steel</option>
-            <option value="ice">ice</option>
-            <option value="ghost">ghost</option>
-            <option value="dragon">dragon</option>
-        </select>
+        
         <div id="pokemon-modal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
