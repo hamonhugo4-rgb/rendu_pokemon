@@ -1,28 +1,62 @@
+
 .pokedex {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(200px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
     background-color: white;
     border: 2px solid #333;
     border-radius: 12px;
-    box-shadow: 5px 5px 0 #333;
+    box-shadow: 5px 5px 0px #333;
 }
 
+
 .carte {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 15px;
     background-color: white;
     border: 2px solid #333;
     border-radius: 12px;
+    padding: 15px;
     box-shadow: 5px 5px 2px #333;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+
+.case_nom {
+    width: 100%;
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.case_nom h2 {
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.image_carte {
+    width: 100%;
+    height: 150px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.image_carte img {
+    max-height: 120px;
+    max-width: 120px;
+    object-fit: contain;
 }
 
 .carte_header {
@@ -33,41 +67,25 @@
     gap: 8px;
 }
 
+
 .case_nom {
     flex-grow: 1;
-    width: 100%;
-    padding: 5px;
-    background-color: white;
     border: 2px solid #333;
     border-radius: 6px;
+    padding: 5px;
+    background-color: #fff;
     text-align: center;
 }
 
 .case_nom h2 {
-    margin: 0;
-    overflow: hidden;
     font-size: 0.9rem;
+    margin: 0;
     text-transform: capitalize;
-    text-overflow: ellipsis;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.image_carte {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 150px;
-    background-color: #f9f9f9;
-    border: 2px solid #333;
-    border-radius: 8px;
-}
-
-.image_carte img {
-    max-width: 120px;
-    max-height: 120px;
-    object-fit: contain;
-}
 
 .affichage_type {
     display: flex;
@@ -75,17 +93,84 @@
     gap: 4px;
 }
 
+
 .badge_type {
-    padding: 4px 8px;
     border: 2px solid #333;
     border-radius: 6px;
+    padding: 4px 8px;
     font-size: 0.75rem;
     font-weight: bold;
-    text-align: center;
+    
     text-transform: capitalize;
+    text-align: center;
+}
+
+.icon_type {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+.visible {
+    display: block;
+}
+/* Style de la modale */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 6px 6px 0px #333;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+#modal-details h2 {
+    text-transform: capitalize;
+    margin-top: 0;
+}
+
+#modal-details ul {
+    text-align: left;
+    padding-left: 20px;
+    margin: 10px 0 0 0;
+    font-size: 0.9rem;
 }
 
 /* Partie Amina */
+
+/* Pour placer le bouton cœur dans la carte */
+.carte {
+    position: relative;
+}
 
 .outils_amina {
     display: flex;
@@ -167,8 +252,9 @@
 }
 
 .cache {
-    display: none;
+    display: none !important;
 }
+
 
 /* Thème Pokémon Bleu */
 

@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex</title>
+    <title>pokedex</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header></header>
-
     <main>
         <!-- Partie Amina -->
         <section class="outils_amina">
@@ -39,14 +36,41 @@
             Aucun Pokémon ne correspond à votre recherche.
         </p>
 
+        <select>
+            <option value="all">tout type</option>
+            <option value="fire">fire</option>
+            <option value="water">water</option>
+            <option value="grass">grass</option>
+            <option value="poison">poison</option>
+            <option value="flying">flying</option>
+            <option value="bug">bug</option>
+            <option value="normal">normal</option>
+            <option value="electric">electric</option>
+            <option value="ground">ground</option>
+            <option value="fairy">fairy</option>
+            <option value="fighting">fighting</option>
+            <option value="psychic">psychic</option>
+            <option value="rock">rock</option>
+            <option value="steel">steel</option>
+            <option value="ice">ice</option>
+            <option value="ghost">ghost</option>
+            <option value="dragon">dragon</option>
+        </select>
+        <div id="pokemon-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+            <div id="modal-details">
+            <!-- Les infos du pokémon s'afficheront ici -->
+        </div>
+    </div>
+</div>
         <div class="pokedex" id="pokedex">
-
+            
+            
         </div>
     </main>
-
     <footer>
         <script src="pokedex.js"></script>
     </footer>
 </body>
-
 </html>
