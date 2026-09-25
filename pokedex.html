@@ -4,16 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Pokédex</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <header></header>
 
     <main>
-        <!-- Partie Amina -->
+
+        <!-- Partie Amina : recherche et favoris -->
         <section class="outils_amina">
+
             <label for="recherche_pokemon">
                 Rechercher un Pokémon
             </label>
@@ -32,20 +38,63 @@
             <button type="button" id="afficher_favoris">
                 Voir mes favoris
             </button>
+
         </section>
+
+        <!-- Partie Hugo : filtre par type -->
+        <label for="filtre_type">
+            Filtrer par type
+        </label>
+
+        <select id="filtre_type">
+            <option value="all">Tous les types</option>
+            <option value="fire">Feu</option>
+            <option value="water">Eau</option>
+            <option value="grass">Plante</option>
+            <option value="poison">Poison</option>
+            <option value="flying">Vol</option>
+            <option value="bug">Insecte</option>
+            <option value="normal">Normal</option>
+            <option value="electric">Électrique</option>
+            <option value="ground">Sol</option>
+            <option value="fairy">Fée</option>
+            <option value="fighting">Combat</option>
+            <option value="psychic">Psy</option>
+            <option value="rock">Roche</option>
+            <option value="steel">Acier</option>
+            <option value="ice">Glace</option>
+            <option value="ghost">Spectre</option>
+            <option value="dragon">Dragon</option>
+        </select>
 
         <p id="aucun_resultat" class="aucun_resultat cache">
             Aucun Pokémon ne correspond à votre recherche.
         </p>
 
-        <div class="pokedex" id="pokedex">
+        <!-- Fenêtre avec les détails du Pokémon -->
+        <div id="pokemon-modal" class="modal" style="display: none;">
+
+            <div class="modal-content">
+
+                <span class="close-btn">&times;</span>
+
+                <div id="modal-details">
+                    <!-- Les informations seront ajoutées en JavaScript -->
+                </div>
+
+            </div>
 
         </div>
+
+        <!-- Les cartes Pokémon seront ajoutées ici -->
+        <div class="pokedex" id="pokedex"></div>
+
     </main>
 
-    <footer>
-        <script src="pokedex.js"></script>
-    </footer>
+    <footer></footer>
+
+    <script src="pokedex.js"></script>
+
 </body>
 
 </html>

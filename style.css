@@ -1,23 +1,207 @@
 .pokedex {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 12px;
+    box-shadow: 5px 5px 0px #333;
+}
+
+
+.carte {
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 5px 5px 2px #333;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+
+.case_nom {
+    width: 100%;
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.case_nom h2 {
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.image_carte {
+    width: 100%;
+    height: 150px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.image_carte img {
+    max-height: 120px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+.carte_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+
+
+.case_nom {
+    flex-grow: 1;
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.case_nom h2 {
+    font-size: 0.9rem;
+    margin: 0;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.affichage_type {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.badge_type {
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.icon_type {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+.visible {
+    display: block;
+}
+/* Style de la modale */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 6px 6px 0px #333;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+#modal-details h2 {
+    text-transform: capitalize;
+    margin-top: 0;
+}
+
+#modal-details ul {
+    text-align: left;
+    padding-left: 20px;
+    margin: 10px 0 0 0;
+    font-size: 0.9rem;
+}
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* Pokédex */
+
+.pokedex {
+    display: grid;
     grid-template-columns: repeat(
         auto-fill,
         minmax(200px, 1fr)
     );
     gap: 20px;
     padding: 20px;
+    margin-top: 20px;
     background-color: white;
     border: 2px solid #333;
     border-radius: 12px;
     box-shadow: 5px 5px 0 #333;
 }
 
+
+/* Cartes Pokémon */
+
 .carte {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 12px;
+    align-items: center;
     padding: 15px;
     background-color: white;
     border: 2px solid #333;
@@ -75,17 +259,84 @@
     gap: 4px;
 }
 
-.badge_type {
-    padding: 4px 8px;
+.icon_type {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+
+/* Filtre par type */
+
+#filtre_type {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
     border: 2px solid #333;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+
+/* Fenêtre avec les détails */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    position: relative;
+    width: 320px;
+    padding: 20px;
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 12px;
+    box-shadow: 6px 6px 0 #333;
     text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+#modal-details h2 {
+    margin-top: 0;
     text-transform: capitalize;
 }
 
-/* Partie Amina */
+#modal-details img {
+    width: 130px;
+    image-rendering: pixelated;
+}
+
+#modal-details ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+
+/* Partie Amina : recherche et favoris */
 
 .outils_amina {
     display: flex;
@@ -135,6 +386,9 @@
     background-color: #e32636;
 }
 
+
+/* Bouton cœur */
+
 .bouton_favori {
     position: absolute;
     right: 8px;
@@ -159,6 +413,9 @@
     background-color: #ffe5e8;
 }
 
+
+/* Message aucun résultat */
+
 .aucun_resultat {
     padding: 20px;
     color: #c1121f;
@@ -167,5 +424,274 @@
 }
 
 .cache {
-    display: none;
+    display: none !important;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Direction artistique : Pokémon Bleu
+   Tout est ajouté ici, à la fin du fichier :
+   les règles plus haut ne sont pas modifiées,
+   ces règles-ci passent simplement par-dessus.*/
+
+/* Couleurs du thème */
+
+:root {
+    --bleu-nuit: #0f1b4c;
+    --bleu: #2e5bba;
+    --bleu-clair: #8fb3f0;
+    --bleu-pale: #dfe9ff;
+    --blanc: #f8f8f8;
+    --jaune: #ffcb05;
+    --rouge: #e32636;
+
+    --police-pixel: "Press Start 2P", "Courier New", monospace;
+}
+
+
+/* Page */
+
+body {
+    color: var(--bleu-nuit);
+    background-color: var(--bleu-pale);
+}
+
+
+/* En-tête avec le titre */
+
+header {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 24px;
+    background-color: var(--bleu);
+    border: 4px solid var(--bleu-nuit);
+    box-shadow: 6px 6px 0 var(--bleu-nuit);
+    text-align: center;
+}
+
+header::before {
+    content: "Pokédex";
+    color: var(--jaune);
+    font-family: var(--police-pixel);
+    font-size: 2rem;
+    text-shadow:
+        3px 3px 0 var(--bleu-nuit),
+        -2px -2px 0 var(--bleu-nuit);
+}
+
+
+/* Barre d'outils (recherche et favoris) */
+
+.outils_amina {
+    background-color: var(--blanc);
+    border: 4px double var(--bleu-nuit);
+}
+
+.outils_amina label,
+label[for="filtre_type"] {
+    font-family: var(--police-pixel);
+    font-size: 0.7rem;
+}
+
+#recherche_pokemon,
+#filtre_type,
+.compteur_favoris,
+#afficher_favoris {
+    color: var(--bleu-nuit);
+    background-color: var(--blanc);
+    border: 3px solid var(--bleu-nuit);
+    border-radius: 0;
+    box-shadow: 3px 3px 0 var(--bleu-nuit);
+}
+
+.compteur_favoris,
+#afficher_favoris {
+    font-family: var(--police-pixel);
+    font-size: 0.65rem;
+}
+
+#afficher_favoris:hover {
+    background-color: var(--bleu-clair);
+}
+
+#afficher_favoris.actif {
+    color: var(--blanc);
+    background-color: var(--rouge);
+}
+
+/* Contour jaune quand on navigue au clavier */
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--jaune);
+    outline-offset: 2px;
+}
+
+
+/* Grille du Pokédex */
+
+.pokedex {
+    background-color: var(--bleu);
+    border: 4px solid var(--bleu-nuit);
+    border-radius: 4px;
+    box-shadow: 6px 6px 0 var(--bleu-nuit);
+}
+
+
+/* Cartes : style « boîte de dialogue » du jeu */
+
+.carte {
+    background-color: var(--blanc);
+    border: 5px double var(--bleu-nuit);
+    border-radius: 4px;
+    box-shadow: 4px 4px 0 var(--bleu-nuit);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.carte:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 var(--bleu-nuit);
+}
+
+.case_nom {
+    background-color: var(--bleu-pale);
+    border: 2px solid var(--bleu-nuit);
+    border-radius: 0;
+}
+
+.case_nom h2 {
+    font-family: var(--police-pixel);
+    font-size: 0.6rem;
+    line-height: 1.4;
+}
+
+.image_carte {
+    background-color: var(--bleu-pale);
+    border: 2px solid var(--bleu-nuit);
+    border-radius: 0;
+}
+
+/* Sprites agrandis sans flou, comme sur Game Boy */
+.image_carte img {
+    width: 120px;
+    image-rendering: pixelated;
+}
+
+
+/* Bouton cœur */
+
+.bouton_favori {
+    border-color: var(--bleu-nuit);
+}
+
+
+/* Fenêtre de détails */
+
+.modal {
+    background-color: rgba(15, 27, 76, 0.7);
+}
+
+.modal-content {
+    background-color: var(--blanc);
+    border: 6px double var(--bleu-nuit);
+    border-radius: 4px;
+    box-shadow: 6px 6px 0 var(--bleu-nuit);
+}
+
+#modal-details h2 {
+    font-family: var(--police-pixel);
+    font-size: 1rem;
+}
+
+
+/* Messages */
+
+.aucun_resultat {
+    margin: 20px auto;
+    max-width: 500px;
+    color: var(--bleu-nuit);
+    background-color: var(--blanc);
+    border: 5px double var(--bleu-nuit);
+    font-family: var(--police-pixel);
+    font-size: 0.7rem;
+    line-height: 1.6;
+}
+
+
+/* Écrans de téléphone */
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header::before {
+        font-size: 1.3rem;
+    }
+
+    .outils_amina {
+        flex-direction: column;
+    }
+}
+
+
+/* Pas d'animation pour ceux qui les désactivent */
+
+@media (prefers-reduced-motion: reduce) {
+    .carte {
+        transition: none;
+    }
+
+    .carte:hover {
+        transform: none;
+    }
+}
+
+
+/* Fond de page : quadrillage façon carte du jeu */
+
+body {
+    background-color: var(--bleu-clair);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.25) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.25) 2px, transparent 2px),
+        linear-gradient(var(--bleu-clair), var(--bleu-pale));
+    background-size:
+        32px 32px,
+        32px 32px,
+        100% 100%;
+    background-attachment: fixed;
+}
+
+
+/* Couleur des cartes selon le premier type du Pokémon
+   (on lit l'attribut data-types de chaque carte) */
+
+.carte[data-types^="normal"]   { --couleur-type: #e8e4d8; }
+.carte[data-types^="fire"]     { --couleur-type: #ffd2b8; }
+.carte[data-types^="water"]    { --couleur-type: #cfe0ff; }
+.carte[data-types^="grass"]    { --couleur-type: #cdeec0; }
+.carte[data-types^="electric"] { --couleur-type: #fff3a8; }
+.carte[data-types^="ice"]      { --couleur-type: #d4f4f4; }
+.carte[data-types^="fighting"] { --couleur-type: #f2c4bd; }
+.carte[data-types^="poison"]   { --couleur-type: #e6cbef; }
+.carte[data-types^="ground"]   { --couleur-type: #f0e0b8; }
+.carte[data-types^="flying"]   { --couleur-type: #dcd8ff; }
+.carte[data-types^="psychic"]  { --couleur-type: #ffd0e0; }
+.carte[data-types^="bug"]      { --couleur-type: #e2f0b0; }
+.carte[data-types^="rock"]     { --couleur-type: #e6ddb8; }
+.carte[data-types^="ghost"]    { --couleur-type: #d8d0ec; }
+.carte[data-types^="dragon"]   { --couleur-type: #d0c8ff; }
+.carte[data-types^="fairy"]    { --couleur-type: #ffd8f0; }
+.carte[data-types^="steel"]    { --couleur-type: #e0e4ec; }
+
+/* Si le type n'est pas dans la liste, on garde le bleu pâle */
+.case_nom,
+.image_carte {
+    background-color: var(--couleur-type, var(--bleu-pale));
 }
