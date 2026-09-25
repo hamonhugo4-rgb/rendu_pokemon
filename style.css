@@ -164,3 +164,228 @@
     margin: 10px 0 0 0;
     font-size: 0.9rem;
 }
+
+/* Partie Amina */
+
+/* Pour placer le bouton cœur dans la carte */
+.carte {
+    position: relative;
+}
+
+.outils_amina {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+}
+
+.outils_amina label {
+    font-weight: bold;
+}
+
+#recherche_pokemon {
+    width: min(100%, 360px);
+    padding: 12px 16px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.compteur_favoris {
+    margin: 0;
+    padding: 12px 16px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#afficher_favoris {
+    padding: 12px 16px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#afficher_favoris:hover {
+    background-color: #f2f2f2;
+}
+
+#afficher_favoris.actif {
+    color: white;
+    background-color: #e32636;
+}
+
+.bouton_favori {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 38px;
+    height: 38px;
+    color: #333;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.bouton_favori:hover {
+    transform: scale(1.1);
+}
+
+.bouton_favori.actif {
+    color: #e32636;
+    background-color: #ffe5e8;
+}
+
+.aucun_resultat {
+    padding: 20px;
+    color: #c1121f;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cache {
+    display: none !important;
+}
+
+
+/* Thème Pokémon Bleu */
+
+:root {
+    --bleu-nuit: #0f1b4c;
+    --bleu: #2e5bba;
+    --bleu-clair: #8fb3f0;
+    --bleu-pale: #dfe9ff;
+    --blanc: #f8f8f8;
+    --jaune: #ffcb05;
+    --rouge: #e32636;
+    --police-pixel: "Press Start 2P", monospace;
+}
+
+body {
+    color: var(--bleu-nuit);
+    background-color: var(--bleu-clair);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.25) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.25) 2px, transparent 2px);
+    background-size: 32px 32px;
+}
+
+header {
+    padding: 24px;
+    margin-bottom: 20px;
+    background-color: var(--bleu);
+    border: 4px solid var(--bleu-nuit);
+    text-align: center;
+}
+
+header::before {
+    content: "Pokédex";
+    color: var(--jaune);
+    font-family: var(--police-pixel);
+    font-size: 2rem;
+    text-shadow: 3px 3px 0 var(--bleu-nuit);
+}
+
+.outils_amina {
+    background-color: var(--blanc);
+    border: 4px double var(--bleu-nuit);
+}
+
+.outils_amina label,
+.compteur_favoris,
+#afficher_favoris {
+    font-family: var(--police-pixel);
+    font-size: 0.65rem;
+}
+
+#recherche_pokemon,
+.compteur_favoris,
+#afficher_favoris {
+    border: 3px solid var(--bleu-nuit);
+    border-radius: 0;
+}
+
+#afficher_favoris.actif {
+    background-color: var(--rouge);
+}
+
+.pokedex {
+    background-color: var(--bleu);
+    border: 4px solid var(--bleu-nuit);
+}
+
+.carte {
+    background-color: var(--blanc);
+    border: 5px double var(--bleu-nuit);
+}
+
+.carte:hover {
+    transform: translate(-3px, -3px);
+}
+
+.case_nom,
+.image_carte {
+    background-color: var(--bleu-pale);
+    border: 2px solid var(--bleu-nuit);
+    border-radius: 0;
+}
+
+.case_nom h2 {
+    font-family: var(--police-pixel);
+    font-size: 0.6rem;
+}
+
+.image_carte img {
+    width: 120px;
+    image-rendering: pixelated;
+}
+
+.badge_type {
+    background-color: var(--blanc);
+    border-color: var(--bleu-nuit);
+    border-radius: 0;
+    font-family: var(--police-pixel);
+    font-size: 0.5rem;
+}
+
+.aucun_resultat {
+    color: var(--bleu-nuit);
+    font-family: var(--police-pixel);
+    font-size: 0.7rem;
+}
+
+@media (max-width: 600px) {
+    header::before {
+        font-size: 1.3rem;
+    }
+}
+/* Couleur des cartes selon le type */
+
+.carte[data-types^="normal"]   { --couleur-type: #e8e4d8; }
+.carte[data-types^="fire"]     { --couleur-type: #ffd2b8; }
+.carte[data-types^="water"]    { --couleur-type: #cfe0ff; }
+.carte[data-types^="grass"]    { --couleur-type: #cdeec0; }
+.carte[data-types^="electric"] { --couleur-type: #fff3a8; }
+.carte[data-types^="ice"]      { --couleur-type: #d4f4f4; }
+.carte[data-types^="fighting"] { --couleur-type: #f2c4bd; }
+.carte[data-types^="poison"]   { --couleur-type: #e6cbef; }
+.carte[data-types^="ground"]   { --couleur-type: #f0e0b8; }
+.carte[data-types^="psychic"]  { --couleur-type: #ffd0e0; }
+.carte[data-types^="bug"]      { --couleur-type: #e2f0b0; }
+.carte[data-types^="rock"]     { --couleur-type: #e6ddb8; }
+.carte[data-types^="ghost"]    { --couleur-type: #d8d0ec; }
+.carte[data-types^="dragon"]   { --couleur-type: #d0c8ff; }
+.carte[data-types^="fairy"]    { --couleur-type: #ffd8f0; }
+
+.case_nom,
+.image_carte {
+    background-color: var(--couleur-type, var(--bleu-pale));
+}

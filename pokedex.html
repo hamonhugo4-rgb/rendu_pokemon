@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pokedex</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header></header>
     <main>
+        <!-- Partie Amina -->
+        <section class="outils_amina">
+            <label for="recherche_pokemon">
+                Rechercher un Pokémon
+            </label>
+
+            <input
+                type="search"
+                id="recherche_pokemon"
+                placeholder="Exemple : Pikachu"
+                autocomplete="off"
+            >
+
+            <p class="compteur_favoris">
+                Favoris : <span id="nombre_favoris">0</span>
+            </p>
+
+            <button type="button" id="afficher_favoris">
+                Voir mes favoris
+            </button>
+        </section>
+
+        <p id="aucun_resultat" class="aucun_resultat cache">
+            Aucun Pokémon ne correspond à votre recherche.
+        </p>
+
         <select>
             <option value="all">tout type</option>
             <option value="fire">fire</option>
